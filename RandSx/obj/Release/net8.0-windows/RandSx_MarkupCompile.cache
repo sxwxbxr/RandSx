@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sweb\Documents\GitHub\RandSx\RandSx\obj\Debug\net8.0-windows\
+C:\Users\sweb\Documents\GitHub\RandSx\RandSx\obj\Release\net8.0-windows\
 RandSx
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 C:\Users\sweb\Documents\GitHub\RandSx\RandSx\App.xaml
 11407045341
 
-4-472526974
+4-2123297203
 198155382431
 MainWindow.xaml;
 
-False
+True
 
