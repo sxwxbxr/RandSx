@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1iozc0HFtvRYbbTKT+D92qPkrmj5CSuoc692XEfo2JpR4ozK9eGs7pu84FbwrlCHMHehPA8HrdkKi91bEYKT4g==",
+  "dgSpecHash": "AdxZmaZcI1CFX/4uEFrYjgfZh9AP7l9Oth8lSFNwRf579EJZQbFt5SqgGrHYc/TzCkzQju86RaLI6tzGZHA67w==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ApaX\\.nuget\\packages\\material.icons\\2.1.9\\material.icons.2.1.9.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\material.icons.wpf\\2.1.9\\material.icons.wpf.2.1.9.nupkg.sha512"
+  ],
   "logs": []
 }

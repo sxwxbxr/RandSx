@@ -20,4 +20,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+    
+    private void btnKoFi_Click(object sender, RoutedEventArgs e)
+    {
+        System.Diagnostics.Process.Start("https://ko-fi.com/sxwxbxr");
+    }
 }

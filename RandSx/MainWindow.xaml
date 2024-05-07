@@ -6,10 +6,37 @@
 		xmlns:local="clr-namespace:RandSx"
 		mc:Ignorable="d"
 		Title="RandSx - Randomness Tester" Height="450" Width="800">
-	<StackPanel>
-		<Button x:Name = "btnSettings" Content ="Settings" HorizontalAlignment ="Left"
-				Margin = "10" VerticalAlignment ="Top" Width ="75" />
-		<Button x:Name = "btnRandSx" Content ="Randomness Tester" HorizontalAlignment ="Left"
-				Margin = "10" VerticalAlignment ="Top" Width ="75" />
+	<StackPanel Orientation="Horizontal" Background="Gray">
+		<StackPanel Orientation="Vertical" Background="LimeGreen" HorizontalAlignment="Left" Width="150">
+			<Button x:Name = "btnSettings" HorizontalAlignment ="Stretch"
+			        Margin = "0,0,0,0" VerticalAlignment ="Top" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin">
+				<StackPanel Orientation="Horizontal">
+					<Image Source=""></Image>
+					<TextBlock Text="Settings" Height="20"></TextBlock>
+				</StackPanel>
+			</Button>
+			<Button x:Name = "btnRandSx" HorizontalAlignment ="Stretch"
+			        Margin = "0,0,0,0" VerticalAlignment ="Top" Width ="" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="" Width="" Height="20"></Image>
+					<TextBlock Text="RandSx" Height="20"></TextBlock>
+				</StackPanel>
+			</Button>
+		</StackPanel>
+		
+		<!-- Welcome Screen -->
+		<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="650">
+			<TextBlock Text="Welcome to RandSx" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,20,0,0"></TextBlock>
+			<TextBlock Text="Randomness Tester" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,20,0,0"></TextBlock>
+			<TextBlock Text="This application is designed to test the randomness of a sequence of numbers." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
+			<TextBlock Text="Please select the Settings button to configure the test parameters." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
+			<TextBlock Text="Please select the RandSx button to begin the test." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
+			<Button x:Name = "btnKoFi"  HorizontalAlignment ="Stretch"
+			        Margin = "0,5,0,0" VerticalAlignment ="Top" Height="50" Background="Transparent" FontWeight="Thin" Click="btnKoFi_Click">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/img/kofi_button_red.png"> </Image>
+				</StackPanel>
+			</Button>
+	</StackPanel>
 	</StackPanel>
 </Window>
