@@ -38,6 +38,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Material.Icons.Avalonia": {
+              "target": "Package",
+              "version": "[2.1.9, )"
+            },
             "Material.Icons.WPF": {
               "target": "Package",
               "version": "[2.1.9, )"

@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "AdxZmaZcI1CFX/4uEFrYjgfZh9AP7l9Oth8lSFNwRf579EJZQbFt5SqgGrHYc/TzCkzQju86RaLI6tzGZHA67w==",
+  "dgSpecHash": "RdJtHOZ14e3iGmd7YphzfOcUwD0eRq7ahDAyqO1tOtcqjLHoifeGuE5Jnf5uXg/1LKb9Ngkr61uYZArJPvbENg==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ApaX\\.nuget\\packages\\avalonia\\11.0.0-rc1.1\\avalonia.11.0.0-rc1.1.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\avalonia.buildservices\\0.0.19\\avalonia.buildservices.0.0.19.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\avalonia.remote.protocol\\11.0.0-rc1.1\\avalonia.remote.protocol.11.0.0-rc1.1.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\extended.wpf.toolkit\\4.6.0\\extended.wpf.toolkit.4.6.0.nupkg.sha512",
     "C:\\Users\\ApaX\\.nuget\\packages\\material.icons\\2.1.9\\material.icons.2.1.9.nupkg.sha512",
-    "C:\\Users\\ApaX\\.nuget\\packages\\material.icons.wpf\\2.1.9\\material.icons.wpf.2.1.9.nupkg.sha512"
+    "C:\\Users\\ApaX\\.nuget\\packages\\material.icons.avalonia\\2.1.9\\material.icons.avalonia.2.1.9.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\material.icons.wpf\\2.1.9\\material.icons.wpf.2.1.9.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\microcom.runtime\\0.11.0\\microcom.runtime.0.11.0.nupkg.sha512",
+    "C:\\Users\\ApaX\\.nuget\\packages\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

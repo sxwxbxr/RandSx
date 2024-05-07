@@ -4,39 +4,84 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:RandSx"
+		xmlns:wpf="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
 		mc:Ignorable="d"
-		Title="RandSx - Randomness Tester" Height="450" Width="800">
+		Title="RandSx - Randomness Tester" Height="450" Width="850">
 	<StackPanel Orientation="Horizontal" Background="Gray">
 		<StackPanel Orientation="Vertical" Background="LimeGreen" HorizontalAlignment="Left" Width="150">
-			<Button x:Name = "btnSettings" HorizontalAlignment ="Stretch"
-			        Margin = "0,0,0,0" VerticalAlignment ="Top" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin">
+			<Button x:Name = "btnSettings" HorizontalAlignment ="Stretch" Click="btnSettings_Click"
+			        Margin = "0,0,0,0" VerticalAlignment ="Top" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin" BorderThickness="0">
 				<StackPanel Orientation="Horizontal">
-					<Image Source=""></Image>
+					<wpf:MaterialIcon Kind="Settings"/>
 					<TextBlock Text="Settings" Height="20"></TextBlock>
 				</StackPanel>
 			</Button>
-			<Button x:Name = "btnRandSx" HorizontalAlignment ="Stretch"
-			        Margin = "0,0,0,0" VerticalAlignment ="Top" Width ="" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin">
+			<Button x:Name = "btnRandSx" HorizontalAlignment ="Stretch" Click="btnRandSx_Click"
+			        Margin = "0,0,0,0" VerticalAlignment ="Top" Height="50" Background="LimeGreen" Foreground="Black" FontSize="16" FontWeight="Thin" BorderThickness="0">
 				<StackPanel Orientation="Horizontal">
-					<Image Source="" Width="" Height="20"></Image>
+					<wpf:MaterialIcon Kind="Dice3" />
 					<TextBlock Text="RandSx" Height="20"></TextBlock>
 				</StackPanel>
 			</Button>
 		</StackPanel>
 		
 		<!-- Welcome Screen -->
-		<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="650">
+		<StackPanel x:Name="WelcomeScreen" Orientation="Vertical" HorizontalAlignment="Stretch" Width="650">
 			<TextBlock Text="Welcome to RandSx" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0,20,0,0"></TextBlock>
-			<TextBlock Text="Randomness Tester" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,20,0,0"></TextBlock>
+			<TextBlock Text="Randomness Tester by sxwxbxr" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,20,0,0"></TextBlock>
 			<TextBlock Text="This application is designed to test the randomness of a sequence of numbers." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
 			<TextBlock Text="Please select the Settings button to configure the test parameters." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
 			<TextBlock Text="Please select the RandSx button to begin the test." HorizontalAlignment="Center" FontSize="16" FontWeight="Thin" Margin="0,20,0,0"></TextBlock>
-			<Button x:Name = "btnKoFi"  HorizontalAlignment ="Stretch"
-			        Margin = "0,5,0,0" VerticalAlignment ="Top" Height="50" Background="Transparent" FontWeight="Thin" Click="btnKoFi_Click">
+			<Button x:Name = "btnKoFi"  HorizontalAlignment ="Center"
+			        Margin = "0,5,0,0" VerticalAlignment ="Top" Height="50" Background="Transparent" FontWeight="Thin" Click="btnKoFi_Click" BorderThickness="0">
 				<StackPanel Orientation="Horizontal">
 					<Image Source="/img/kofi_button_red.png"> </Image>
 				</StackPanel>
 			</Button>
 	</StackPanel>
+		<StackPanel x:Name="NumberRangePanel" Orientation="Vertical" HorizontalAlignment="Stretch" Width="650" Visibility="Collapsed" Background="#F0F0F0" Margin="10">
+			<Grid>
+				<!-- Top section for input fields -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="3*"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
+					<Label Content="Number:" Foreground="DarkBlue" FontSize="16"/>
+					<xctk:WatermarkTextBox x:Name="txtNumber" Watermark="Enter a number" Background="White" Foreground="Black" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+
+					<Label Content="Min:" Foreground="DarkBlue" FontSize="16"/>
+					<xctk:WatermarkTextBox x:Name="txtMin" Watermark="Enter minimum value" Background="White" Foreground="Black" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+
+					<Label Content="Max:" Foreground="DarkBlue" FontSize="16"/>
+					<xctk:WatermarkTextBox x:Name="txtMax" Watermark="Enter maximum value" Background="White" Foreground="Black" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+
+					<Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click" Margin="0,10,0,0" Background="LimeGreen" Foreground="White" FontSize="16"/>
+				</StackPanel>
+
+				<!-- Bottom section for randomness results -->
+				<Grid x:Name="RandomnessResults" Grid.Row="1" Background="LightGray" Margin="10">
+					<!-- Grid for randomness results goes here -->
+				</Grid>
+			</Grid>
+		</StackPanel>
+		<StackPanel x:Name="SettingsPanel" Orientation="Vertical" HorizontalAlignment="Stretch" Width="650" Visibility="Collapsed">
+			<CheckBox x:Name="chkMetric1" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Check the time needed to input the number." TextWrapping="Wrap"/>
+			</CheckBox>
+			<CheckBox x:Name="chkMetric2" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Allow defining a range of numbers." TextWrapping="Wrap"/>
+			</CheckBox>
+			<CheckBox x:Name="chkMetric3" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="When checking, the results will be shown as numbers instead of percentages." TextWrapping="Wrap"/>
+			</CheckBox>
+			<CheckBox x:Name="chkMetric4" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Check the similarity with previous numbers." TextWrapping="Wrap"/>
+			</CheckBox>
+			<CheckBox x:Name="chkMetric5" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Check the similarity between consecutive numbers." TextWrapping="Wrap"/>
+			</CheckBox>
+		</StackPanel>
 	</StackPanel>
 </Window>

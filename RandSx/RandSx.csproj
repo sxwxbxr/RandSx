@@ -9,7 +9,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+      <PackageReference Include="Material.Icons.Avalonia" Version="2.1.9" />
       <PackageReference Include="Material.Icons.WPF" Version="2.1.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="img\kofi_button_red.png" />
+      <Resource Include="img\kofi_button_red.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
 
 </Project>
