@@ -67,20 +67,23 @@
 			</Grid>
 		</StackPanel>
 		<StackPanel x:Name="SettingsPanel" Orientation="Vertical" HorizontalAlignment="Stretch" Width="650" Visibility="Collapsed">
-			<CheckBox x:Name="chkMetric1" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="Check the time needed to input the number." TextWrapping="Wrap"/>
+			<CheckBox x:Name="settingTimeInput" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Enable time check to input the number." TextWrapping="Wrap"/>
 			</CheckBox>
-			<CheckBox x:Name="chkMetric2" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="Allow defining a range of numbers." TextWrapping="Wrap"/>
+			<CheckBox x:Name="settingDisableRange" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Disable the number range." TextWrapping="Wrap"/>
 			</CheckBox>
-			<CheckBox x:Name="chkMetric3" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="When checking, the results will be shown as numbers instead of percentages." TextWrapping="Wrap"/>
+			<CheckBox x:Name="settingDisablePercentage" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Disable percentage results." TextWrapping="Wrap"/>
 			</CheckBox>
-			<CheckBox x:Name="chkMetric4" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="Check the similarity with previous numbers." TextWrapping="Wrap"/>
+			<CheckBox x:Name="settingEnablePreviousNumbers" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Enable similarity check with previous numbers." TextWrapping="Wrap"/>
 			</CheckBox>
-			<CheckBox x:Name="chkMetric5" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="Check the similarity between consecutive numbers." TextWrapping="Wrap"/>
+			<CheckBox x:Name="settingEnableConsecutiveNumbers" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Enable similarity check between consecutive numbers." TextWrapping="Wrap"/>
+			</CheckBox>
+			<CheckBox x:Name="settingInternetConnection" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
+				<TextBlock Text="Enable internet connection for number generator." TextWrapping="Wrap"/>
 			</CheckBox>
 		</StackPanel>
 	</StackPanel>

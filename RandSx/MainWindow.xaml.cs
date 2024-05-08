@@ -21,7 +21,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-    
+
     private void btnKoFi_Click(object sender, RoutedEventArgs e)
     {
         var psi = new System.Diagnostics.ProcessStartInfo
@@ -31,7 +31,7 @@ public partial class MainWindow : Window
         };
         System.Diagnostics.Process.Start(psi);
     }
-    
+
     private void btnRandSx_Click(object sender, RoutedEventArgs e)
     {
         if (WelcomeScreen.Visibility == Visibility.Visible)
@@ -51,6 +51,7 @@ public partial class MainWindow : Window
         }
 
     }
+
     private void btnSettings_Click(object sender, RoutedEventArgs e)
     {
         if (WelcomeScreen.Visibility == Visibility.Visible)
@@ -69,7 +70,7 @@ public partial class MainWindow : Window
             SettingsPanel.Visibility = Visibility.Collapsed;
         }
     }
-    
+
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
     {
         bool isValid = IsTextAllowed(e.Text);
@@ -81,7 +82,7 @@ public partial class MainWindow : Window
         Regex regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
         return !regex.IsMatch(text);
     }
-    
+
     private void btnSubmit_Click(object sender, RoutedEventArgs e)
 {
     // Get the values from the textboxes
@@ -101,15 +102,15 @@ public partial class MainWindow : Window
     RandomnessResults.RowDefinitions.Clear();
 
     // Add the definitions of the results to the Grid
-    if (chkMetric1.IsChecked == true)
+    if (settingTimeInput.IsChecked == true)
     {
         AddResultRow("Time to input the number:");
     }
-    if (chkMetric4.IsChecked == true)
+    if (settingEnablePreviousNumbers.IsChecked == true)
     {
         AddResultRow("Similarity with the previous numbers:");
     }
-    if (chkMetric5.IsChecked == true)
+    if (settingEnableConsecutiveNumbers.IsChecked == true)
     {
         AddResultRow("Similarity between consecutive numbers:");
     }
@@ -118,7 +119,7 @@ public partial class MainWindow : Window
     AddResultRow("Overall score:");
 }
 
-private void AddResultRow(string definition)
+    private void AddResultRow(string definition)
 {
     // Create a new row for the Grid
     var rowDefinition = new RowDefinition();
