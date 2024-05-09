@@ -17,11 +17,22 @@ namespace RandSx;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private EvaluateNumber _evaluateNumber;
+    
     public MainWindow()
     {
         InitializeComponent();
-    }
 
+        
+        CheckSettings checkSettings = new CheckSettings()
+        {
+            IsEnablePreviousNumbersChecked = settingEnablePreviousNumbers.IsChecked.Value,
+            IsEnableConsecutiveNumbersChecked = settingEnableConsecutiveNumbers.IsChecked.Value,
+            IsInternetConnectionEnabled = settingInternetConnection.IsChecked.Value
+        };
+        _evaluateNumber = new EvaluateNumber(checkSettings);
+    }
+    
     private void btnKoFi_Click(object sender, RoutedEventArgs e)
     {
         var psi = new System.Diagnostics.ProcessStartInfo
@@ -32,42 +43,34 @@ public partial class MainWindow : Window
         System.Diagnostics.Process.Start(psi);
     }
 
+    private void ToggleVisibility(Visibility welcomeScreenVisibility, Visibility settingsPanelVisibility, Visibility numberRangePanelVisibility)
+    {
+        WelcomeScreen.Visibility = welcomeScreenVisibility;
+        SettingsPanel.Visibility = settingsPanelVisibility;
+        NumberRangePanel.Visibility = numberRangePanelVisibility;
+    }
+
     private void btnRandSx_Click(object sender, RoutedEventArgs e)
     {
-        if (WelcomeScreen.Visibility == Visibility.Visible)
+        if (WelcomeScreen.Visibility == Visibility.Visible || SettingsPanel.Visibility == Visibility.Visible)
         {
-            WelcomeScreen.Visibility = Visibility.Collapsed;
-            NumberRangePanel.Visibility = Visibility.Visible;
-        }
-        else if (SettingsPanel.Visibility == Visibility.Visible)
-        {
-            SettingsPanel.Visibility = Visibility.Collapsed;
-            NumberRangePanel.Visibility = Visibility.Visible;
+            ToggleVisibility(Visibility.Collapsed, Visibility.Collapsed, Visibility.Visible);
         }
         else
         {
-            WelcomeScreen.Visibility = Visibility.Visible;
-            NumberRangePanel.Visibility = Visibility.Collapsed;
+            ToggleVisibility(Visibility.Visible, Visibility.Collapsed, Visibility.Collapsed);
         }
-
     }
 
     private void btnSettings_Click(object sender, RoutedEventArgs e)
     {
-        if (WelcomeScreen.Visibility == Visibility.Visible)
+        if (WelcomeScreen.Visibility == Visibility.Visible || NumberRangePanel.Visibility == Visibility.Visible)
         {
-            WelcomeScreen.Visibility = Visibility.Collapsed;
-            SettingsPanel.Visibility = Visibility.Visible;
-        }
-        else if (NumberRangePanel.Visibility == Visibility.Visible)
-        {
-            NumberRangePanel.Visibility = Visibility.Collapsed;
-            SettingsPanel.Visibility = Visibility.Visible;
+            ToggleVisibility(Visibility.Collapsed, Visibility.Visible, Visibility.Collapsed);
         }
         else
         {
-            WelcomeScreen.Visibility = Visibility.Visible;
-            SettingsPanel.Visibility = Visibility.Collapsed;
+            ToggleVisibility(Visibility.Visible, Visibility.Collapsed, Visibility.Collapsed);
         }
     }
 
@@ -86,11 +89,60 @@ public partial class MainWindow : Window
     private void btnSubmit_Click(object sender, RoutedEventArgs e)
 {
     // Get the values from the textboxes
-    int number = int.Parse(txtNumber.Text);
-    int minNumber = int.Parse(txtMin.Text);
-    int maxNumber = int.Parse(txtMax.Text);
+    string numberText = txtNumber.Text;
+    string minNumberText = txtMin.Text;
+    string maxNumberText = txtMax.Text;
 
-    // TODO: Submit the values for further processing
+    // Set default values for empty fields
+    numberText = string.IsNullOrWhiteSpace(numberText) ? "0" : numberText;
+    minNumberText = string.IsNullOrWhiteSpace(minNumberText) ? "0" : minNumberText;
+    maxNumberText = string.IsNullOrWhiteSpace(maxNumberText) ? "0" : maxNumberText;
+
+    double number, minNumber, maxNumber;
+
+    // Check if the inputs can be parsed to double or float, otherwise parse them as int
+    if (double.TryParse(numberText, out number) && double.TryParse(minNumberText, out minNumber) && double.TryParse(maxNumberText, out maxNumber))
+    {
+        // Check if minNumber is smaller than maxNumber
+        if (minNumber >= maxNumber)
+        {
+            // Display an error message to the user and highlight the faulty fields
+            MessageBox.Show("The minimum number should be smaller than the maximum number.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            txtMin.Background = Brushes.Red;
+            txtMax.Background = Brushes.Red;
+            return;
+        }
+        // Call the EvaluateRandomNumber method for double
+        _evaluateNumber.EvaluateRandomNumber(number, minNumber, maxNumber);
+    }
+    else
+    {
+        // Parse the inputs as integers
+        int intNumber, intMinNumber, intMaxNumber;
+        if (int.TryParse(numberText, out intNumber) && int.TryParse(minNumberText, out intMinNumber) && int.TryParse(maxNumberText, out intMaxNumber))
+        {
+            // Check if minNumber is smaller than maxNumber
+            if (intMinNumber >= intMaxNumber)
+            {
+                // Display an error message to the user and highlight the faulty fields
+                MessageBox.Show("The minimum number should be smaller than the maximum number.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtMin.Background = Brushes.Red;
+                txtMax.Background = Brushes.Red;
+                return;
+            }
+            
+            // Call the EvaluateRandomNumber method for int
+            _evaluateNumber.EvaluateRandomNumber(intNumber, intMinNumber, intMaxNumber);
+        }
+        else
+        {
+            // Display an error message to the user and highlight the faulty fields
+            MessageBox.Show("Please enter valid numbers.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            txtNumber.Background = Brushes.Red;
+            txtMin.Background = Brushes.Red;
+            txtMax.Background = Brushes.Red;
+        }
+    }
 
     // Clear the textboxes
     txtNumber.Text = "";
@@ -102,10 +154,6 @@ public partial class MainWindow : Window
     RandomnessResults.RowDefinitions.Clear();
 
     // Add the definitions of the results to the Grid
-    if (settingTimeInput.IsChecked == true)
-    {
-        AddResultRow("Time to input the number:");
-    }
     if (settingEnablePreviousNumbers.IsChecked == true)
     {
         AddResultRow("Similarity with the previous numbers:");

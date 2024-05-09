@@ -1,28 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sweb\\Documents\\GitHub\\RandSx\\RandSx\\RandSx.csproj": {}
+    "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sweb\\Documents\\GitHub\\RandSx\\RandSx\\RandSx.csproj": {
+    "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sweb\\Documents\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
+        "projectUniqueName": "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
         "projectName": "RandSx",
-        "projectPath": "C:\\Users\\sweb\\Documents\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
-        "packagesPath": "C:\\Users\\sweb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sweb\\Documents\\GitHub\\RandSx\\RandSx\\obj\\",
+        "projectPath": "E:\\GitHub\\RandSx\\RandSx\\RandSx.csproj",
+        "packagesPath": "C:\\Users\\ApaX\\.nuget\\packages\\",
+        "outputPath": "E:\\GitHub\\RandSx\\RandSx\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sweb\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ApaX\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
@@ -72,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ApaX\\.dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

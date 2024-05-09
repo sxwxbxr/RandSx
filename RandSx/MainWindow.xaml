@@ -67,9 +67,6 @@
 			</Grid>
 		</StackPanel>
 		<StackPanel x:Name="SettingsPanel" Orientation="Vertical" HorizontalAlignment="Stretch" Width="650" Visibility="Collapsed">
-			<CheckBox x:Name="settingTimeInput" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
-				<TextBlock Text="Enable time check to input the number." TextWrapping="Wrap"/>
-			</CheckBox>
 			<CheckBox x:Name="settingDisableRange" FontSize="18" FontWeight="Regular" Foreground="Black" Margin="10" Padding="5">
 				<TextBlock Text="Disable the number range." TextWrapping="Wrap"/>
 			</CheckBox>
